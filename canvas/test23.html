@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        function draw() {
+            var canvas = document.getElementById('tutorial')
+            if (canvas.getContext) {
+                var ctx = canvas.getContext('2d')
+                // Canvas 填充规则
+                // 你可以选择一个填充规则，该填充规则根据某处在路径的外面或者里面来决定该处是否被填充，这对于自己与自己路径相交或者路径被嵌套的时候是有用的。
+
+                ctx.beginPath();
+                ctx.arc(50, 50, 30, 0, Math.PI * 2, true);
+                ctx.arc(50, 50, 15, 0, Math.PI * 2, true);
+                ctx.fill("evenodd");
+            }
+        }
+    </script>
+    <style>
+        canvas {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body onload="draw()">
+    <canvas id="tutorial" width="350" height="250"></canvas>
+
+</body>
+
+</html>

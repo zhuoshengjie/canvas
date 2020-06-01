@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        function draw() {
+            var canvas = document.getElementById('tutorial')
+            if (canvas.getContext) {
+                var ctx = canvas.getContext('2d')
+
+                // path2D对象也可以画图用于简化代码提高性能
+
+                var rectangle = new Path2D()
+                rectangle.rect(10, 10, 50, 50)
+
+                var circle = new Path2D()
+                circle.moveTo(125, 35)
+                circle.arc(100, 35, 25, 0, 2 * Math.PI)
+
+                //                 新的Path2D API有另一个强大的特点，就是使用SVG path data来初始化canvas上的路径。这将使你获取路径时可以以SVG或canvas的方式来重用它们。
+
+                // 这条路径将先移动到点 (M10 10) 然后再水平移动80个单位(h 80)，然后下移80个单位 (v 80)，接着左移80个单位 (h -80)，再回到起点处 (z)。你可以在Path2D constructor 查看这个例子。
+                var p = new Path2D("M10 10 h 80 v 80 h -80 Z");
+
+                ctx.stroke(rectangle)
+                ctx.fill(circle)
+                ctx.stroke(p)
+
+            }
+        }
+    </script>
+    <style>
+        canvas {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body onload="draw()">
+    <canvas id="tutorial" width="350" height="250"></canvas>
+
+</body>
+
+</html>

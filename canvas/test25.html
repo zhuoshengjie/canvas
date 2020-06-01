@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        function draw() {
+            var canvas = document.getElementById('tutorial')
+            if (canvas.getContext) {
+                var ctx = canvas.getContext('2d')
+                // canvas更有意思的一项特性就是图像操作能力。
+                // 可以用于动态的图像合成或者作为图形的背景，
+                // 以及游戏界面（Sprites）等等。浏览器支持的任意格式的外部图片都可以使用，
+                // 比如PNG、GIF或者JPEG。 
+                // 你甚至可以将同一个页面中其他canvas元素生成的图片作为图片源。              
+                var img = new Image();   // 创建img元素
+                img.onload = function () {
+                    // 执行drawImage语句
+                    // drawImage(image, x, y, width, height)
+                    ctx.drawImage(img, 0, 0, 100, 100)
+                    ctx.beginPath()
+                    ctx.moveTo(30, 96)
+                    ctx.lineTo(70, 66)
+                    ctx.lineTo(103, 76)
+                    ctx.lineTo(170, 15)
+                    ctx.stroke()
+                }
+                img.src = 'data:image/gif;base64,R0lGODlhCwALAIAAAAAA3pn/ZiH5BAEAAAEALAAAAAALAAsAAAIUhA+hkcuO4lmNVindo7qyrIXiGBYAOw=='; // 设置图片源地址
+            }
+        }
+    </script>
+    <style>
+        canvas {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body onload="draw()">
+    <canvas id="tutorial" width="350" height="250"></canvas>
+
+</body>
+
+</html>

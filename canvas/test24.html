@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        function draw() {
+            var canvas = document.getElementById('tutorial')
+            if (canvas.getContext) {
+                var ctx = canvas.getContext('2d')
+                // canvas 提供了两种方法来渲染文本:
+
+                // fillText(text, x, y [, maxWidth])
+                // 在指定的(x,y)位置填充指定的文本，绘制的最大宽度是可选的.
+                // strokeText(text, x, y [, maxWidth])
+                // 在指定的(x,y)位置绘制文本边框，绘制的最大宽度是可选的.                
+                ctx.font = "48px serif";
+                
+                ctx.fillText("Hello world", 10, 50);
+                ctx.strokeText("Hello world", 10, 100);
+                ctx.textBaseline = "top"
+                ctx.strokeText("Hello world", 10, 150)
+            }
+        }
+    </script>
+    <style>
+        canvas {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body onload="draw()">
+    <canvas id="tutorial" width="350" height="250"></canvas>
+
+</body>
+
+</html>

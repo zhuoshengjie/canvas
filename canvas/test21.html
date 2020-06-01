@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        function draw() {
+            var canvas = document.getElementById('tutorial')
+            if (canvas.getContext) {
+                var ctx = canvas.getContext('2d')
+                // 图案
+                // 创建新 image 对象，用作图案
+                var img = new Image();
+                img.src = 'https://mdn.mozillademos.org/files/222/Canvas_createpattern.png';
+                img.onload = function () {
+
+                    // 创建图案
+                    var ptrn = ctx.createPattern(img, 'repeat');
+                    ctx.fillStyle = ptrn;
+                    ctx.fillRect(0, 0, 250, 250);
+
+                }
+            }
+        }
+    </script>
+    <style>
+        canvas {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body onload="draw()">
+    <canvas id="tutorial" width="350" height="250"></canvas>
+
+</body>
+
+</html>

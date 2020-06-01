@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        function draw() {
+            var canvas = document.getElementById('tutorial')
+            if (canvas.getContext) {
+                var ctx = canvas.getContext('2d')
+                // canvas更有意思的一项特性就是图像操作能力。
+                // 平铺图像            
+                var img = new Image();   // 创建img元素
+                img.onload = function () {
+                    for (var i = 0; i < 4; i++) {
+                        for (var j = 0; j < 3; j++) {
+                            ctx.drawImage(img, j * 50, i * 38, 70, 48);
+                        }
+                    }
+                };
+                img.src = 'https://mdn.mozillademos.org/files/5397/rhino.jpg';
+            }
+        }
+    </script>
+    <style>
+        canvas {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body onload="draw()">
+    <canvas id="tutorial" width="350" height="250"></canvas>
+
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        function draw() {
+            var canvas = document.getElementById('tutorial')
+            if (canvas.getContext) {
+                var ctx = canvas.getContext('2d')
+
+                // 二次贝塞尔曲线及三次贝塞尔曲线，都十分有用，一般用来绘制
+                // 复杂有规律的图形
+                // quadraticCurveTo(cp1x, cp1y, x, y)
+                // 绘制二次贝塞尔曲线，cp1x, cp1y为一个控制点，x, y为结束点。
+                // bezierCurveTo(cp1x, cp1y, cp2x, cp2y, x, y)
+                // 绘制三次贝塞尔曲线，cp1x, cp1y为控制点一，cp2x, cp2y为控制点二，x, y为结束点。
+                
+
+                // 三次贝赛尔曲线 绘制心形
+                ctx.beginPath()
+                ctx.moveTo(75, 40)
+                ctx.bezierCurveTo(75, 37, 70, 25, 50, 25)
+                ctx.bezierCurveTo(20, 25, 20, 62,5, 20, 62,5)
+                ctx.bezierCurveTo(20, 80, 40, 102, 75, 120)
+                ctx.bezierCurveTo(110, 102, 130, 80, 130, 62.5)
+                ctx.bezierCurveTo(130, 62.5, 130, 25, 100, 25)
+                ctx.bezierCurveTo(85, 25, 75, 37, 75, 40)
+                ctx.fill()
+
+            }
+        }
+    </script>
+    <style>
+        canvas {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body onload="draw()">
+    <canvas id="tutorial" width="150" height="250"></canvas>
+
+</body>
+
+</html>
